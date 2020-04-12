@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+![Python 3.7](https://img.shields.io/badge/python-3.7-green.svg)
+
 # Unsupervised Writer Adaptation for Synthetic-to-Real Handwritten Word Recognition
 
 An unsupervised writer adaptation approach that is able to automatically adjust a generic handwritten word recognizer, fully trained with synthetic fonts, towards a new incoming writer.
