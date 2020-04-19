@@ -3,10 +3,6 @@ import cv2
 import numpy as np
 import marcalAugmentor
 
-#with open('writer.id', 'r') as wid_f:
-#    WRITER_ID = wid_f.read().strip()
-##WRITER_ID = '201'
-
 train_set = '/home/lkang/datasets/syn_60000_words/subset_20305words.txt' # 20305 words source domain
 valid_set = '/home/lkang/datasets/iam_final_words/RWTH.iam_word_gt_final.valid.thresh'
 test_set = '/home/lkang/datasets/iam_final_words/RWTH.iam_word_gt_final.test.thresh'
@@ -22,7 +18,6 @@ RM_BACKGROUND = True
 FLIP = False # flip the image
 OUTPUT_MAX_LEN = 23 # max-word length is 21  This value should be larger than 21+2 (<GO>+groundtruth+<END>)
 IMG_WIDTH = 1011 # m01-084-07-00 max_length
-#img_baseDir = '/home/lkang/datasets/iam_final_forms/words_from_forms/'
 IMG_HEIGHT = 64
 
 def filterOutShortImage(data_set_file, flag='src', thresh=64):
@@ -45,7 +40,6 @@ def filterOutShortImage(data_set_file, flag='src', thresh=64):
     return new_file_name
 
 new_target_set = filterOutShortImage(target_set, 'tar', 32)
-#new_test_set = test_set
 
 new_train_set = 'new_train_set.gt'
 with open(new_train_set, 'w') as out:
@@ -111,18 +105,11 @@ class IAM_words(D.Dataset):
                 file_name, thresh = ctx[0], ctx[1]
 
             thresh = int(thresh)
-        #if not dom_label: # source domain
-        #    url = baseDir + subDir_syn + subdir + file_name + '.png'
-        #else:
-        #    url = baseDir + subDir_iam + subdir + file_name + '.png'
         url = img_baseDir[img_flag] + file_name + '.png'
 
         img = cv2.imread(url, 0)
         if RM_BACKGROUND:
             img[img>thresh] = 255
-        #img = 255 - img
-        #img = cv2.resize(img, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
-        #size = img.shape[0] * img.shape[1]
 
         rate = float(IMG_HEIGHT) / img.shape[0]
         img = cv2.resize(img, (int(img.shape[1]*rate)+1, IMG_HEIGHT), interpolation=cv2.INTER_CUBIC) # INTER_AREA con error
@@ -144,7 +131,6 @@ class IAM_words(D.Dataset):
 
         if img_width > IMG_WIDTH:
             outImg = cv2.resize(img, (IMG_WIDTH, IMG_HEIGHT), interpolation=cv2.INTER_AREA)
-            #outImg = img[:, :IMG_WIDTH]
             img_width = IMG_WIDTH
         else:
             outImg = np.zeros((IMG_HEIGHT, IMG_WIDTH), dtype='uint8')
@@ -194,21 +180,11 @@ def loadData():
 
     with open(GT_TE, 'r') as f_te:
         data_te = f_te.readlines()
-        #len_te = len(data_te)
         file_label_te = [i[:-1].split(' ') for i in data_te]
 
     with open(GT_TR, 'r') as f_tr:
         data_tr = f_tr.readlines()
-        #len_tr = len(data_tr)
         file_label_tr = [i[:-1].split(' ') for i in data_tr]
-
-    #file_label_tr_te = file_label_tr + file_label_te
-    #total_num_tr = len(file_label_tr)
-    #total_num_va = len(file_label_va)
-    #total_num_te = len(file_label_te)
-    #print('Loading training data ', total_num_tr)
-    #print('Loading validation data ', total_num_va)
-    #print('Loading testing data ', total_num_te)
 
     np.random.shuffle(file_label_tr)
     data_train = IAM_words(file_label_tr, trainset=True, augmentation=True)
