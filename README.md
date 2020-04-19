@@ -14,7 +14,7 @@ In The IEEE Winter Conference on Applications of Computer Vision, pp. 3502-3511.
 ## Software environment:
 
 - Ubuntu 16.04 x64
-- Python 3
+- Python 3.7
 - PyTorch 0.3
 
 ## Dataset preparation
