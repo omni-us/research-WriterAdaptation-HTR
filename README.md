@@ -51,10 +51,11 @@ If you use the code for your research, please cite our paper:
 
 ```
 @inproceedings{kang2020unsupervised,
-  title={Unsupervised Writer Adaptation for Synthetic-to-Real Handwritten Word Recognition},
-    author={Kang, Lei and Rusi{\~n}ol, Mar{\c{c}}al and Forn{\'e}s, Alicia and Riba, Pau and Villegas, Mauricio},
-      booktitle={The IEEE Winter Conference on Applications of Computer Vision},
-        pages={3502--3511},
-          year={2020}
+  title={Unsupervised Adaptation for Synthetic-to-Real Handwritten Word Recognition},
+  author={Kang, Lei and Rusi{\~n}ol, Mar{\c{c}}al and Forn{\'e}s, Alicia and Riba, Pau and Villegas, Mauricio},
+  booktitle={2020 IEEE Winter Conference on Applications of Computer Vision (WACV)},
+  pages={3491--3500},
+  year={2020},
+  organization={IEEE}
 }
 ```
