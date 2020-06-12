@@ -7,9 +7,9 @@ An unsupervised writer adaptation approach that is able to automatically adjust 
 
 ![Architecture](https://user-images.githubusercontent.com/9562709/78949930-7ea75000-7acd-11ea-9e11-d081fbcd50a5.png)
 
-[Unsupervised Writer Adaptation for Synthetic-to-Real Handwritten Word Recognition](http://openaccess.thecvf.com/content_WACV_2020/papers/Kang_Unsupervised_Writer_Adaptation_for_Synthetic-to-Real_Handwritten_Word_Recognition_WACV_2020_paper.pdf)<br>
+[Unsupervised Adaptation for Synthetic-to-Real Handwritten Word Recognition](https://ieeexplore.ieee.org/abstract/document/9093392)<br>
 Lei Kang, Marçal Rusiñol, Alicia Fornés, Pau Riba, and Mauricio Villegas<br>
-In The IEEE Winter Conference on Applications of Computer Vision, pp. 3502-3511. 2020.
+2020 IEEE Winter Conference on Applications of Computer Vision (WACV), Snowmass Village, CO, USA, 2020, pp. 3491-3500, doi: 10.1109/WACV45572.2020.9093392.
 
 ## Software environment:
 
